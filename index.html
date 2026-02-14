@@ -1,1 +1,128 @@
-loveTruck.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./loveTruck.css">
+    <link rel="stylesheet" href="./envelope.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>To my love 💖</title>
+    <style>
+        .hidden { display: none !important; }
+        .page-section { display: none; min-height: 100vh; width: 100%; position: absolute; top: 0; left: 0; padding: 20px; box-sizing: border-box; background: #fff5f5; }
+        .page-section.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        
+        /* Box Collection Styles */
+        .collection-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 800px; width: 90%; margin-bottom: 30px; }
+        .box-item { background: white; border-radius: 15px; padding: 15px; box-shadow: 0 4px 15px rgba(255,182,193,0.3); transition: transform 0.3s; text-align: center; }
+        .box-item:hover { transform: translateY(-5px); }
+        .box-item img { width: 100%; height: 120px; object-fit: contain; border-radius: 10px; margin-bottom: 10px; }
+        .box-item p { font-family: 'Dancing Script', cursive; font-size: 1.2rem; color: #ff4d6d; }
+
+        /* Music Styles */
+        .music-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
+        .song-info h3 { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff4d6d; margin: 10px 0; }
+        .audio-player { width: 100%; margin-top: 20px; }
+
+        /* Gallery Styles */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; width: 90%; max-width: 1000px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; height: 250px; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,77,109,0.8); color: white; padding: 10px; transform: translateY(100%); transition: transform 0.3s; font-family: 'Dancing Script', cursive; text-align: center; }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+        .back-btn { margin-top: 20px; padding: 12px 25px; background: #ff4d6d; color: white; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; }
+        .back-btn:hover { background: #ff758f; }
+        
+        .nav-buttons { display: flex; gap: 15px; margin-top: 30px; }
+        .magic-button { padding: 12px 30px; background: #ff4d6d; color: white; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 15px rgba(255,77,109,0.3); }
+    </style>
+</head>
+<body>
+    <!-- Box 1: Collection -->
+    <div id="section1" class="page-section active">
+        <h1 class="romantic-font" style="color: #ff4d6d; margin-bottom: 20px;">Our Cute Moments</h1>
+        <div class="collection-container">
+            <div class="box-item">
+                <img src="assets/p1.gif" alt="Caring">
+                <p>Gentle Care</p>
+            </div>
+            <div class="box-item">
+                <img src="assets/abdominal.gif" alt="Support">
+                <p>Supporting You</p>
+            </div>
+            <div class="box-item">
+                <img src="assets/sleep.gif" alt="Together">
+                <p>Sweet Dreams</p>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="showSection('section2')" class="magic-button">Next: Romantic Songs 🎵</button>
+        </div>
+    </div>
+
+    <!-- Box 2: Romantic Songs -->
+    <div id="section2" class="page-section">
+        <div class="music-card">
+            <div class="song-info">
+                <h3>Romantic Melodies</h3>
+                <p style="font-family: 'Dancing Script', cursive;">Songs that remind me of us...</p>
+            </div>
+            <!-- Using a sample romantic melody from Pixabay for demo -->
+            <audio controls class="audio-player">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div style="margin-top: 20px; font-size: 0.9rem; color: #888;">Playing: Romantic Theme</div>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="showSection('section1')" class="back-btn">Back to Start</button>
+            <button onclick="showSection('section3')" class="magic-button">Next: Pic Gallery 📸</button>
+        </div>
+    </div>
+
+    <!-- Box 3: Pic Gallery -->
+    <div id="section3" class="page-section">
+        <h1 class="romantic-font" style="color: #ff4d6d; margin-bottom: 20px;">Our Gallery</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=400" alt="Love 1">
+                <div class="gallery-overlay">Beautiful Moments</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516589174184-c68526674fd6?auto=format&fit=crop&q=80&w=400" alt="Love 2">
+                <div class="gallery-overlay">Forever Together</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=400" alt="Love 3">
+                <div class="gallery-overlay">Happy Times</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511275539165-cc46b1ee89bf?auto=format&fit=crop&q=80&w=400" alt="Love 4">
+                <div class="gallery-overlay">Sweet Love</div>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="showSection('section2')" class="back-btn">Back to Music</button>
+            <button onclick="location.href='loveTruck.html'" class="magic-button">Special Surprise 🚚</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Auto-play music if entering section 2
+            const audio = document.querySelector('audio');
+            if (sectionId === 'section2') {
+                audio.play().catch(e => console.log("Auto-play blocked"));
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+</html>
