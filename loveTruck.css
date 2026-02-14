@@ -74,8 +74,8 @@ body
 }
 
 .gift-box {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     background: #ff4d6d;
     position: relative;
     cursor: pointer;
@@ -86,10 +86,10 @@ body
 
 .gift-lid {
     position: absolute;
-    width: 130px;
-    height: 30px;
+    width: 90px;
+    height: 20px;
     background: #ff758f;
-    top: -10px;
+    top: -8px;
     left: -5px;
     z-index: 2;
     transition: transform 0.5s;
