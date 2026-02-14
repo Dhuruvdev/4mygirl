@@ -73,14 +73,15 @@
     <!-- Step 1: Open Envelope -->
     <div id="start-section" class="page-section">
         <div class="envelope-container">
-            <div class="envelope">
+            <div class="envelope" onclick="this.classList.add('opened'); document.getElementById('open-heart-btn').classList.remove('hidden');">
                 <div class="envelope__tab"></div>
                 <div class="envelope__letter">
                     <p>Meeting you was like listening to a song for the first time and knowing it would be my favorite.💖 I love you darling🌍</p>
                 </div>
                 <div class="envelope--base"></div> 
             </div>
-            <button onclick="showSection('quotes')" class="magic-button" style="margin-top: 30px;">Open My Heart ✨</button>
+            <p id="click-hint" style="font-family: 'Dancing Script', cursive; color: #ff4d6d; margin-top: 15px;">Click the envelope to open... ✨</p>
+            <button id="open-heart-btn" onclick="showSection('quotes')" class="magic-button hidden" style="margin-top: 30px;">Open My Heart ✨</button>
         </div>
     </div>
 
