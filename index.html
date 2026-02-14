@@ -120,6 +120,7 @@
             </div>
         </div>
         <div id="gift-message">Click a box to see what's inside!</div>
+        <button onclick="location.href='loveTruck.html'" class="magic-button" style="margin-top: 40px;">Final Surprise 🚚✨</button>
     </div>
 
     <!-- Box 1: Gifs Collection -->
@@ -151,8 +152,8 @@
                 <img src="assets/music_cat.gif" alt="Music Cat" style="width: 200px; margin: 10px auto; border-radius: 15px; display: block;">
                 <p style="font-family: 'Dancing Script', cursive;">The rhythm of our hearts...</p>
             </div>
-            <audio controls class="audio-player" style="display: none;">
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            <audio controls class="audio-player" id="bg-music">
+                <source src="assets/perfect.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -175,7 +176,6 @@
         </div>
         <div class="nav-buttons" style="margin-top: 30px; display: flex; gap: 15px;">
             <button onclick="showSection('gift-selection')" class="back-btn" style="margin-top: 0;">Back to Gifts</button>
-            <button onclick="location.href='loveTruck.html'" class="magic-button">Special Surprise 🚚</button>
         </div>
     </div>
 
@@ -185,7 +185,7 @@
             const target = document.getElementById(sectionId + (sectionId.includes('-') ? '' : '-section'));
             if (target) target.classList.add('active');
             
-            const audio = document.querySelector('audio');
+            const audio = document.getElementById('bg-music');
             if (sectionId === 'music') {
                 audio.play().catch(e => console.log("Play blocked"));
             } else {
