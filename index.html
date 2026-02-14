@@ -73,23 +73,14 @@
         <button onclick="showSection('start')" class="magic-button" style="margin-top: 30px;">See What's Inside ✨</button>
     </div>
 
-    <!-- Step 1: Open Envelope -->
+    <!-- Step 1: Open My Heart -->
     <div id="start-section" class="page-section">
-        <div class="envelope-wrapper">
-            <div class="envelope-container">
-                <div id="main-envelope" class="envelope" onclick="openEnvelope(this)">
-                    <div class="envelope__tab"></div>
-                    <div class="envelope__letter">
-                        <div id="letter-content" class="hidden">
-                            <p style="font-size: 1.4rem; font-family: 'Caveat', cursive; line-height: 1.6;">Meeting you was like listening to a song for the first time and knowing it would be my favorite.💖 <br><br>I love you darling🌍</p>
-                        </div>
-                    </div>
-                    <div class="envelope--base"></div> 
-                </div>
-            </div>
+        <div class="quote-card" style="margin-top: 50px;">
+            <p style="font-size: 1.8rem; font-family: 'Caveat', cursive; line-height: 1.6; color: #ff4d6d; text-align: center;">
+                Meeting you was like listening to a song for the first time and knowing it would be my favorite.💖 <br><br>I love you darling🌍
+            </p>
         </div>
-        <p id="click-hint" style="font-family: 'Dancing Script', cursive; color: #ff4d6d; margin-top: -40px;">Click the envelope to open... ✨</p>
-        <button id="open-heart-btn" onclick="showSection('quotes')" class="magic-button hidden" style="margin-top: 20px;">Open My Heart ✨</button>
+        <button id="open-heart-btn" onclick="showSection('quotes')" class="magic-button" style="margin-top: 20px;">Open My Heart ✨</button>
     </div>
 
     <!-- Step 2: Writing Quotes -->
@@ -223,18 +214,6 @@
             setTimeout(() => {
                 showSection(type);
                 msg.innerText = "Click a box to see what's inside!";
-            }, 800);
-        }
-
-        function openEnvelope(element) {
-            if (element.classList.contains('opened')) return;
-            
-            element.classList.add('opened');
-            document.getElementById('click-hint').classList.add('hidden');
-            
-            setTimeout(() => {
-                document.getElementById('letter-content').classList.remove('hidden');
-                document.getElementById('open-heart-btn').classList.remove('hidden');
             }, 800);
         }
     </script>
