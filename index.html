@@ -125,7 +125,7 @@
             </div>
         </div>
         <div id="gift-message">Click a box to see what's inside!</div>
-        <button onclick="location.href='loveTruck.html'" class="magic-button" style="margin-top: 40px;">Final Surprise 🚚✨</button>
+        <button id="surprise-btn" onclick="location.href='loveTruck.html'" class="magic-button hidden" style="margin-top: 40px;">Final Surprise 🚚✨</button>
     </div>
 
     <!-- Box 1: Gifs Collection -->
@@ -157,10 +157,11 @@
                 <img src="assets/music_cat.gif" alt="Music Cat" style="width: 200px; margin: 10px auto; border-radius: 15px; display: block;">
                 <p style="font-family: 'Dancing Script', cursive;">The rhythm of our hearts...</p>
             </div>
-            <audio controls class="audio-player" id="bg-music">
+            <audio class="audio-player" id="bg-music">
                 <source src="assets/perfect.mp3?v=1" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <button onclick="toggleMusic()" id="music-btn" class="magic-button" style="margin-top: 15px;">Play Our Song 🎵</button>
         </div>
         <button onclick="showSection('gift-selection')" class="back-btn">Back to Gifts</button>
     </div>
@@ -190,11 +191,27 @@
             const target = document.getElementById(sectionId + (sectionId.includes('-') ? '' : '-section'));
             if (target) target.classList.add('active');
             
+            if (sectionId === 'note') {
+                document.getElementById('surprise-btn').classList.remove('hidden');
+            }
+            
             const audio = document.getElementById('bg-music');
-            if (sectionId === 'music') {
+            if (sectionId !== 'music') {
+                audio.pause();
+                const btn = document.getElementById('music-btn');
+                if (btn) btn.innerText = "Play Our Song 🎵";
+            }
+        }
+
+        function toggleMusic() {
+            const audio = document.getElementById('bg-music');
+            const btn = document.getElementById('music-btn');
+            if (audio.paused) {
                 audio.play().catch(e => console.log("Play blocked"));
+                btn.innerText = "Pause Song ⏸";
             } else {
                 audio.pause();
+                btn.innerText = "Play Our Song 🎵";
             }
         }
 

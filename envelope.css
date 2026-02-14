@@ -62,9 +62,10 @@ body {
     background-image: url("https://i.pinimg.com/564x/bd/27/23/bd2723cccfec31aeb82b41034fdd2933.jpg");
   }
   .envelope.opened .envelope__letter {
-    height: 200px;
+    height: 250px;
     color: #4c4444;
-    transform: translateY(-50px);
+    transform: translateY(-100px);
+    z-index: 10;
   }
   
   .envelope.opened .envelope__tab {
