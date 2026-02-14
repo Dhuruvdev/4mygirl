@@ -10,11 +10,11 @@
     <title>To My Love Cleo 💖</title>
     <style>
         .hidden { display: none !important; }
-        .page-section { display: none; min-height: 100vh; width: 100%; position: absolute; top: 0; left: 0; padding: 20px; box-sizing: border-box; background: #fff5f5; }
-        .page-section.active { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .page-section { display: none; min-height: 100vh; width: 100%; position: absolute; top: 0; left: 0; padding: 20px; box-sizing: border-box; background: #fff5f5; overflow-y: auto; }
+        .page-section.active { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; }
         
         /* Truck Animation for Start */
-        .truck-intro { position: relative; width: 100%; height: 200px; overflow: hidden; margin-bottom: 20px; }
+        .truck-intro { position: relative; width: 100%; height: 200px; overflow: hidden; margin-bottom: 20px; flex-shrink: 0; }
         .intro-truck { position: absolute; left: -200px; animation: drive-across 5s infinite linear; }
         @keyframes drive-across {
             0% { left: -200px; }
@@ -22,9 +22,12 @@
         }
 
         .handwriting { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #ff4d6d; line-height: 1.4; max-width: 600px; margin: 20px auto; }
-        .quote-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(255,77,109,0.2); border: 2px dashed #ffb3c1; position: relative; }
+        .quote-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(255,77,109,0.2); border: 2px dashed #ffb3c1; position: relative; width: 90%; max-width: 800px; margin: 40px auto; }
         .quote-card::before { content: '❤'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #fff5f5; padding: 0 10px; color: #ff4d6d; font-size: 1.5rem; }
 
+        /* Envelope positioning fix */
+        .envelope-wrapper { scale: 0.8; margin: 100px 0; display: flex; justify-content: center; align-items: center; min-height: 300px; }
+        
         /* Gifts Styling */
         .gifts-container { display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
         .gift-box { position: relative; width: 120px; height: 100px; background: #ff4d6d; border-radius: 10px; cursor: pointer; transition: transform 0.3s; }
@@ -72,17 +75,19 @@
 
     <!-- Step 1: Open Envelope -->
     <div id="start-section" class="page-section">
-        <div class="envelope-container">
-            <div class="envelope" onclick="this.classList.add('opened'); document.getElementById('open-heart-btn').classList.remove('hidden');">
-                <div class="envelope__tab"></div>
-                <div class="envelope__letter">
-                    <p>Meeting you was like listening to a song for the first time and knowing it would be my favorite.💖 I love you darling🌍</p>
+        <div class="envelope-wrapper">
+            <div class="envelope-container">
+                <div class="envelope" onclick="this.classList.add('opened'); document.getElementById('open-heart-btn').classList.remove('hidden');">
+                    <div class="envelope__tab"></div>
+                    <div class="envelope__letter">
+                        <p style="font-size: 1.2rem;">Meeting you was like listening to a song for the first time and knowing it would be my favorite.💖 I love you darling🌍</p>
+                    </div>
+                    <div class="envelope--base"></div> 
                 </div>
-                <div class="envelope--base"></div> 
             </div>
-            <p id="click-hint" style="font-family: 'Dancing Script', cursive; color: #ff4d6d; margin-top: 15px;">Click the envelope to open... ✨</p>
-            <button id="open-heart-btn" onclick="showSection('quotes')" class="magic-button hidden" style="margin-top: 30px;">Open My Heart ✨</button>
         </div>
+        <p id="click-hint" style="font-family: 'Dancing Script', cursive; color: #ff4d6d; margin-top: -40px;">Click the envelope to open... ✨</p>
+        <button id="open-heart-btn" onclick="showSection('quotes')" class="magic-button hidden" style="margin-top: 20px;">Open My Heart ✨</button>
     </div>
 
     <!-- Step 2: Writing Quotes -->
@@ -153,7 +158,7 @@
                 <p style="font-family: 'Dancing Script', cursive;">The rhythm of our hearts...</p>
             </div>
             <audio controls class="audio-player" id="bg-music">
-                <source src="assets/perfect.mp3" type="audio/mpeg">
+                <source src="assets/perfect.mp3?v=1" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
